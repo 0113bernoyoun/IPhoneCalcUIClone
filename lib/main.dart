@@ -18,7 +18,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
             backgroundColor: Colors.black,
-            body: GridView.count(crossAxisCount: 4, children: [
+            body:OrientationBuilder(
+            builder: (context, orientation) {
+              if(Orientation.portrait){
+                return GridView.count(crossAxisCount: 4, children:<Widget>[
+
+                ],);
+              }
+
+              return GridView.count(crossAxisCount: 4, children: [
               Spacer(),
               Spacer(),
               Spacer(),
@@ -203,6 +211,7 @@ class MyApp extends StatelessWidget {
                 margin: MARGIN_VALUE,
               ),
               Container(
+                
                 child: ElevatedButton(
                   onPressed: () {},
                   child: Text("3"),
@@ -229,7 +238,9 @@ class MyApp extends StatelessWidget {
                 margin: MARGIN_VALUE,
               ),
               Container(
+                 
                 child: ElevatedButton(
+                  
                   onPressed: () {},
                   child: Text("0"),
                   style: ElevatedButton.styleFrom(
@@ -255,6 +266,7 @@ class MyApp extends StatelessWidget {
                 margin: MARGIN_VALUE,
               ),
               Container(
+                
                 child: ElevatedButton(
                   onPressed: () {},
                   child: Text("="),
@@ -267,7 +279,10 @@ class MyApp extends StatelessWidget {
                 ),
                 margin: MARGIN_VALUE,
               )
-            ])));
+            ]);
+            },
+            )
+             ));
   }
 }
 
